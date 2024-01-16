@@ -1,0 +1,98 @@
+:root {
+  --animation-duration: 0.2s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* html, */
+/* body { */
+/*   height: 100%; */
+/* } */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 40px 0;
+  transition: var(--animation-duration) all linear;
+}
+
+input.hidden {
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: none;
+  outline: none;
+  transform: translate(-9999999px, -9999999px);
+}
+
+h1 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px 0;
+}
+
+ul {
+  margin-top: 2em;
+}
+
+li {
+  font-size: 6em;
+  list-style-type: none;
+
+  opacity: 0.4;
+  border-bottom: 0rem solid red;
+  transition:
+    var(--animation-duration) translateY linear,
+    var(--animation-duration) opacity linear,
+    var(--animation-duration) border linear;
+  animation: fadeIn var(--animation-duration) linear;
+}
+li:last-child {
+  border-bottom: 1rem solid red;
+  opacity: 1;
+}
+li.deleting {
+  animation: collapse var(--animation-duration) linear;
+  animation-fill-mode: forwards;
+}
+
+.empty-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 4em;
+  text-transform: uppercase;
+  height: 100%;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes collapse {
+  0% {
+    margin-top: 0;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -6rem;
+  }
+}
